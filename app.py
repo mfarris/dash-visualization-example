@@ -12,6 +12,8 @@ app = dash.Dash(
     __name__, external_stylesheets=["https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css", "style.css"]
 )
 
+server = app.server
+
 dropdown_menu = [
                     html.P([(d.replace('_', ' ') + ":").title(), dcc.Dropdown(id=d, options=col_options)]) 
                     for d in dimensions
@@ -36,7 +38,6 @@ app.layout = html.Div(
     className='container'
 )
 
-
 @app.callback(Output("graph", "figure"), [Input(d, "value") for d in dimensions])
 def make_figure(x, y, color):
     return px.scatter(
@@ -57,4 +58,4 @@ def make_figure(x, y, color):
     )
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
