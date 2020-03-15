@@ -16,7 +16,6 @@ gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.1
 MarkupSafe==1.1.1
-mkl-fft
 mkl-random==1.1.0
 mkl-service==2.3.0
 numpy==1.18.1
